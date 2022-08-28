@@ -1,5 +1,5 @@
 import Series from './Series';
-import Data from './Data';
+import random from 'random'
 import DataRead from './DataRead';
 class Collection {
 	public series: Map<string, Series>
@@ -23,6 +23,19 @@ class Collection {
 			}			
 		}
 		return result
+	}
+	/** Retrieve newly created card(s) by random */
+	random(number: number): DataRead | Array<DataRead> {
+		const result: Array<DataRead> = []
+		const seriesNames = [...this.series.keys()]
+		while (result.length < number) {
+			const series = seriesNames[random.int(0, seriesNames.length - 1)]
+			const cardNames = [...this.series.get(series).cards.keys()].filter(name => !result.map(c => c.name).includes(name))
+			if (!cardNames.length) throw Error("Not enough cards in the collection.")
+			const card = cardNames[random.int(0, cardNames.length - 1)]
+			result.push(this.create(series, card))
+		}
+		return result.length > 1 ? result : result[0]
 	}
 }
 export default Collection
