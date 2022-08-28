@@ -18,7 +18,7 @@ class DataRead extends Data {
 		await this.drawCharacter()
 		await this.drawFrame()
 		this.write(232, 360, String(this.print), "arial", 13, "#ffffff")
-		this.write(150, 33, this.name, "arial", 40, "#ffffff")
+		this.write(150, 35, this.name, "arial", 40, "#ffffff")
 		this.write(150, 417, this.series, "arial", 40, "#ffffff")
 	}
 	private async drawCharacter(): Promise<void> {
@@ -41,7 +41,7 @@ class DataRead extends Data {
 		else this.ctx.fillText(text, x, y)
 	}
 	private getPixelFit(text: string, font: string, size: number, maxWidth: number) {
-		const minSize = size - 20
+		const minSize = size - 15
 		this.ctx.font = `${size}px ${font}`
 		let { width } = this.ctx.measureText(text)
 		while (width > maxWidth) {
@@ -57,8 +57,8 @@ class DataRead extends Data {
 		const div = Math.floor(texts.length / 2)
 		const top = texts.slice(0, div).join(' ')
 		const bottom = texts.slice(div, texts.length).join(' ')
-		this.ctx.fillText(top, x, y, y - 12)
-		this.ctx.fillText(bottom, x, y + 12)
+		this.ctx.fillText(top, x, y - 13)
+		this.ctx.fillText(bottom, x, y + 13)
 	}
 }
 export default DataRead
