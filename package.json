@@ -1,7 +1,7 @@
 {
   "name": "card.ts",
   "description": "A card manager and builder for simulating card-collecting.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "author": "glenn.mt",
   "license": "ISC",
