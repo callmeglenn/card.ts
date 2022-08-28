@@ -1,12 +1,13 @@
 {
   "name": "card.ts",
   "description": "A card manager and builder for simulating card-collecting.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "author": "glenn.mt",
   "license": "ISC",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.29",
+    "random": "^3.0.6",
     "short-unique-id": "^4.4.4"
   },
   "devDependencies": {
